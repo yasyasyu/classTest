@@ -13,4 +13,14 @@ public class PlayerHP : baseHP
 
 		SceneManager.LoadScene("GameOver");
 	}
+	public void HPUp()
+	{
+		base.hp += 10;
+		base.maxHP += 10;
+	}
+
+	public void AttackUp()
+	{
+		base._attack += 10;
+	}
 }

@@ -5,11 +5,11 @@ using UnityEngine;
 public class baseHP : MonoBehaviour
 {
     [SerializeField]
-    private int maxHP;
+    protected internal int maxHP;
     [SerializeField]
-    private int hp;
+    protected internal int hp;
     [SerializeField]
-    private int _attack;
+    protected internal int _attack;
     public int attack{
         get { return _attack; }
     }
