@@ -14,29 +14,33 @@ public class baseHP : MonoBehaviour
         get { return _attack; }
     }
     [SerializeField]
-    private string deffenseTarget;
+    protected internal bool isAttack;
+
+    [SerializeField]
+    private string attackTarget;
 
     // Start is called before the first frame update
     void Start()
     {
         hp = maxHP;
+        isAttack = false;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnCollisionStay(Collision collision)
     {
-        
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if(collision.gameObject.tag == deffenseTarget)
+        if (collision.gameObject.tag == attackTarget && isAttack)
         {
-            hp -= collision.gameObject.GetComponent<baseHP>().attack;
-            if (hp<0)
-            {
-                Deth();
-            }
+            collision.gameObject.GetComponent<baseHP>().Defence(attack);
+            isAttack = false;
+        }
+    }
+
+    public virtual void Defence(int damage)
+    {
+        hp -= damage;
+        if (hp < 0)
+        {
+            Deth();
         }
     }
 

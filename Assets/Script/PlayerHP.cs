@@ -5,6 +5,30 @@ using UnityEngine.SceneManagement;
 
 public class PlayerHP : baseHP
 {
+	private void Update()
+	{
+		if(Input.GetKeyDown(KeyCode.A))
+		{
+			base.isAttack = true;
+
+			Invoke("AttackPersistence",1);
+		}
+
+		// Debug用
+		if (base.isAttack)
+		{
+			gameObject.GetComponent<Renderer>().material.color = Color.red;
+		}
+		else
+		{
+			gameObject.GetComponent<Renderer>().material.color = Color.white;
+		}
+
+	}
+	void AttackPersistence()
+	{
+		base.isAttack = false;
+	}
 	public override void Deth()
 	{
 		// PlayerHPクラスなくてもいいかもしれない。
