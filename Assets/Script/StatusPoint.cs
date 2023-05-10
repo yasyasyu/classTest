@@ -29,93 +29,131 @@ public class StatusPoint : MonoBehaviour
 	/// <param name="num">増減値</param>
 	public void StatusSelect(string type, int num)
 	{
-		if(_statusPoint == 0)
-		{
-			return;
-		}
 		int changeNum = num;
 		if(num > _statusPoint)
 		{
 			changeNum = _statusPoint;
 		}
 		_statusPoint -= changeNum;
-
+		Debug.Log(string.Format("num:{0}, change:{1}, status:{2}", num, changeNum, _statusPoint));
 		// TODO num の増減値をステータスポイント以下、0以上にしたい
 		switch (type)
 		{
 			// TODO enum使ってミスが起こらないようにしたい
+			// TODO Dictionaryならもっと単純に書ける
 			case "Attack":
-				if(_attack + changeNum < 0)
+				if(_attack + changeNum < 0 && _attack > 0)
 				{
 					_statusPoint += -(_attack + changeNum);
 					_attack = 0;
 				}
 				else
 				{
-					_attack += changeNum;
+					if(changeNum + _attack >= 0)
+					{
+						_attack += changeNum;
+					}
+					else{
+						_statusPoint += changeNum;
+					}
 				}
 				break;
 
 			case "AttackSpeed":
-				if (_attackSpeed + changeNum < 0)
+				if (_attackSpeed + changeNum < 0 && _attackSpeed > 0)
 				{
 					_statusPoint += -(_attackSpeed + changeNum);
 					_attackSpeed = 0;
 				}
 				else
 				{
-				_attackSpeed += changeNum;
+					if (changeNum + _attackSpeed >= 0)
+					{
+						_attackSpeed += changeNum;
+					}
+					else
+					{
+						_statusPoint += changeNum;
+					}
 				}
 				break;
 
 			case "Deffence":
-				if (_deffence + changeNum < 0)
+				if (_deffence + changeNum < 0 && _deffence > 0)
 				{
 					_statusPoint += -(_deffence + changeNum);
 					_deffence = 0;
 				}
 				else
 				{
-					_deffence += changeNum;
+					if (changeNum + _deffence >= 0)
+					{
+						_deffence += changeNum;
+					}
+					else
+					{
+						_statusPoint += changeNum;
+					}
 				}
 
 				break;
 
 			case "HitPoint":
-				if (_hitPoint + changeNum < 0)
+				if (_hitPoint + changeNum < 0 && _hitPoint > 0)
 				{
 					_statusPoint += -(_hitPoint + changeNum);
 					_hitPoint = 0;
 				}
 				else
 				{
-					_hitPoint += changeNum;
+					if (changeNum + _hitPoint >= 0)
+					{
+						_hitPoint += changeNum;
+					}
+					else
+					{
+						_statusPoint += changeNum;
+					}
 				}
 
 				break;
 
 			case "Speed":
-				if (_speed + changeNum < 0)
+				if (_speed + changeNum < 0 && _speed > 0)
 				{
 					_statusPoint += -(_speed + changeNum);
 					_speed = 0;
 				}
 				else
 				{
-					_speed += changeNum;
+					if (changeNum + _speed >= 0)
+					{
+						_speed += changeNum;
+					}
+					else
+					{
+						_statusPoint += changeNum;
+					}
 				}
 
 				break;
 
 			case "AbilityHaste":
-				if (_abilityHaste + changeNum < 0)
+				if (_abilityHaste + changeNum < 0 && _abilityHaste > 0)
 				{
 					_statusPoint += -(_abilityHaste + changeNum);
 					_abilityHaste = 0;
 				}
 				else
 				{
-					_abilityHaste += changeNum;
+					if(changeNum + _abilityHaste >= 0)
+					{
+						_abilityHaste += changeNum;
+					}
+					else
+					{
+						_statusPoint += changeNum;
+					}
 				}
 
 				break;
