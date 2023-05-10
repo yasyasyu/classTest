@@ -6,6 +6,8 @@ public class baseHP : MonoBehaviour
 {
     [SerializeField]
     protected internal int maxHP;
+    //protected, internal 継承先のクラスで変更・参照可能にする
+
     [SerializeField]
     protected internal int hp;
     [SerializeField]

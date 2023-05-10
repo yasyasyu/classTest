@@ -33,6 +33,9 @@ public class Experiment : MonoBehaviour
     {
         this.GetComponent<PlayerHP>().HPUp();
         this.GetComponent<PlayerHP>().AttackUp();
+        // ëºÇ…Ç‡êFÅXÇ†ÇÈÇÊ
+        // Def, AtkSpd, Spd, AbilityHaste
+
     }
 
     private void NextExpCalc()
