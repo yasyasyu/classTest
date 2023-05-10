@@ -29,6 +29,10 @@ public class StatusPoint : MonoBehaviour
 	/// <param name="num">‘Œ¸’l</param>
 	public void StatusSelect(string type, int num)
 	{
+		if(_statusPoint == 0)
+		{
+			return;
+		}
 		int changeNum = num;
 		if(num > _statusPoint)
 		{
