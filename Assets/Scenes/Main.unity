@@ -320,6 +320,10 @@ PrefabInstance:
       propertyPath: type
       value: AttackSpeed
       objectReference: {fileID: 0}
+    - target: {fileID: 6431318258487459949, guid: 049ab0301fac06c45ad587fc9666d29c, type: 3}
+      propertyPath: _type
+      value: AttackSpeed
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 049ab0301fac06c45ad587fc9666d29c, type: 3}
 --- !u!1 &724845893
@@ -714,6 +718,10 @@ PrefabInstance:
       propertyPath: type
       value: SpeedButton
       objectReference: {fileID: 0}
+    - target: {fileID: 6431318258487459949, guid: 049ab0301fac06c45ad587fc9666d29c, type: 3}
+      propertyPath: _type
+      value: Speed
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 049ab0301fac06c45ad587fc9666d29c, type: 3}
 --- !u!1 &963194225
@@ -903,6 +911,10 @@ PrefabInstance:
       propertyPath: type
       value: HitPoint
       objectReference: {fileID: 0}
+    - target: {fileID: 6431318258487459949, guid: 049ab0301fac06c45ad587fc9666d29c, type: 3}
+      propertyPath: _type
+      value: HitPoint
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 049ab0301fac06c45ad587fc9666d29c, type: 3}
 --- !u!224 &1291145163 stripped
@@ -1009,6 +1021,10 @@ PrefabInstance:
       propertyPath: type
       value: Deffence
       objectReference: {fileID: 0}
+    - target: {fileID: 6431318258487459949, guid: 049ab0301fac06c45ad587fc9666d29c, type: 3}
+      propertyPath: _type
+      value: Deffence
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 049ab0301fac06c45ad587fc9666d29c, type: 3}
 --- !u!224 &1386895418 stripped
@@ -1113,6 +1129,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6431318258487459949, guid: 049ab0301fac06c45ad587fc9666d29c, type: 3}
       propertyPath: type
+      value: AbilityHaste
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431318258487459949, guid: 049ab0301fac06c45ad587fc9666d29c, type: 3}
+      propertyPath: _type
       value: AbilityHaste
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1466,6 +1486,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6431318258487459949, guid: 049ab0301fac06c45ad587fc9666d29c, type: 3}
       propertyPath: type
+      value: Attack
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431318258487459949, guid: 049ab0301fac06c45ad587fc9666d29c, type: 3}
+      propertyPath: _type
       value: Attack
       objectReference: {fileID: 0}
     m_RemovedComponents: []

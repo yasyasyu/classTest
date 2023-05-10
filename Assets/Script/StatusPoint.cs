@@ -57,7 +57,6 @@ public class StatusPoint : MonoBehaviour
 			default:
 				break;
 		}
-		ViewStatusPoint();
 	}
 	/// <summary>
 	/// ステータスの割り振り決定
@@ -68,7 +67,34 @@ public class StatusPoint : MonoBehaviour
 		// structやdictionaryが出来て、ステータスの旧状態と新状態を保持出来てから実装する
 
 	}
+	public int StatusUI(string type)
+	{
+		switch (type)
+		{
+			// TODO enum使ってミスが起こらないようにしたい
+			case "Attack":
+				return _attack;
 
+			case "AttackSpeed":
+				return _attackSpeed;
+
+			case "Deffence":
+				return _deffence;
+
+			case "HitPoint":
+				return _hitPoint;
+
+			case "Speed":
+				return _speed;
+
+			case "AbilityHaste":
+				return _abilityHaste;
+
+			default:
+				break;
+		}
+		return -1;
+	}
 	private void Init()
 	{
 		_attack = 0;

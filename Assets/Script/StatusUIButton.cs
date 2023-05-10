@@ -6,7 +6,11 @@ public class StatusUIButton : MonoBehaviour
 {
     [SerializeField]
     // TODO enum使ってミスが起こらないようにしたい
-    private string type;
+    private string _type;
+
+    public string type {
+        get { return _type; }
+    }
 
     private StatusPoint statusPoint;
     void Start()
@@ -24,13 +28,13 @@ public class StatusUIButton : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(0))
         {
-            Debug.Log(type + ":Left");
-            statusPoint.StatusSelect(type, 1);
+            Debug.Log(_type + ":Left");
+            statusPoint.StatusSelect(_type, 1);
         }
         if (Input.GetMouseButtonDown(1))
         {
-            Debug.Log(type + ":Right");
-            statusPoint.StatusSelect(type, -1);
+            Debug.Log(_type + ":Right");
+            statusPoint.StatusSelect(_type, -1);
         }
 
     }
