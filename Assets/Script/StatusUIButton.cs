@@ -26,16 +26,31 @@ public class StatusUIButton : MonoBehaviour
 
     public void OnPress()
     {
-        if(Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0))
         {
-            Debug.Log(_type + ":Left");
-            statusPoint.StatusSelect(_type, 1);
+            if (Input.GetKey(KeyCode.LeftShift))
+            {
+                Debug.Log(_type + ":Left" + "|shift");
+                statusPoint.StatusSelect(_type, 5);
+            }
+            else
+            {
+                Debug.Log(_type + ":Left");
+                statusPoint.StatusSelect(_type, 1);
+            }
         }
         if (Input.GetMouseButtonDown(1))
         {
-            Debug.Log(_type + ":Right");
-            statusPoint.StatusSelect(_type, -1);
+            if (Input.GetKey(KeyCode.LeftShift))
+            {
+                Debug.Log(_type + ":Right" + "|shift");
+                statusPoint.StatusSelect(_type, -5);
+            }
+            else
+            {
+                Debug.Log(_type + ":Right");
+                statusPoint.StatusSelect(_type, -1);
+            }
         }
-
     }
 }
