@@ -8,17 +8,22 @@ public class StatusPoint : MonoBehaviour
 	// TODO structや dictionaryにしたい(割り振り決定のため)
 	private int _statusPoint = 10;
 
-	private int _attack = 0;
-	private int _attackSpeed = 0;
-	private int _deffence = 0;
-	private int _hitPoint = 0;
-	private int _speed = 0;
-	private int _abilityHaste = 0;
+	//private int _attack = 0;
+	//private int _attackSpeed = 0;
+	//private int _deffence = 0;
+	//private int _hitPoint = 0;
+	//private int _speed = 0;
+	//private int _abilityHaste = 0;
+	private Dictionary<string, int> _status = new Dictionary<string, int>();
 	[SerializeField]
 	private Text viewText;
-	private void Start()
+	private void Awake()
 	{
 		Init();
+	}
+	private void Start()
+	{
+		
 		ViewStatusPoint();
 	}
 
@@ -36,130 +41,20 @@ public class StatusPoint : MonoBehaviour
 		}
 		_statusPoint -= changeNum;
 		Debug.Log(string.Format("num:{0}, change:{1}, status:{2}", num, changeNum, _statusPoint));
-		// TODO num の増減値をステータスポイント以下、0以上にしたい
-		switch (type)
+		if(_status[type] + changeNum < 0 && _status[type] > 0)
 		{
-			// TODO enum使ってミスが起こらないようにしたい
-			// TODO Dictionaryならもっと単純に書ける
-			case "Attack":
-				if(_attack + changeNum < 0 && _attack > 0)
-				{
-					_statusPoint += -(_attack + changeNum);
-					_attack = 0;
-				}
-				else
-				{
-					if(changeNum + _attack >= 0)
-					{
-						_attack += changeNum;
-					}
-					else{
-						_statusPoint += changeNum;
-					}
-				}
-				break;
-
-			case "AttackSpeed":
-				if (_attackSpeed + changeNum < 0 && _attackSpeed > 0)
-				{
-					_statusPoint += -(_attackSpeed + changeNum);
-					_attackSpeed = 0;
-				}
-				else
-				{
-					if (changeNum + _attackSpeed >= 0)
-					{
-						_attackSpeed += changeNum;
-					}
-					else
-					{
-						_statusPoint += changeNum;
-					}
-				}
-				break;
-
-			case "Deffence":
-				if (_deffence + changeNum < 0 && _deffence > 0)
-				{
-					_statusPoint += -(_deffence + changeNum);
-					_deffence = 0;
-				}
-				else
-				{
-					if (changeNum + _deffence >= 0)
-					{
-						_deffence += changeNum;
-					}
-					else
-					{
-						_statusPoint += changeNum;
-					}
-				}
-
-				break;
-
-			case "HitPoint":
-				if (_hitPoint + changeNum < 0 && _hitPoint > 0)
-				{
-					_statusPoint += -(_hitPoint + changeNum);
-					_hitPoint = 0;
-				}
-				else
-				{
-					if (changeNum + _hitPoint >= 0)
-					{
-						_hitPoint += changeNum;
-					}
-					else
-					{
-						_statusPoint += changeNum;
-					}
-				}
-
-				break;
-
-			case "Speed":
-				if (_speed + changeNum < 0 && _speed > 0)
-				{
-					_statusPoint += -(_speed + changeNum);
-					_speed = 0;
-				}
-				else
-				{
-					if (changeNum + _speed >= 0)
-					{
-						_speed += changeNum;
-					}
-					else
-					{
-						_statusPoint += changeNum;
-					}
-				}
-
-				break;
-
-			case "AbilityHaste":
-				if (_abilityHaste + changeNum < 0 && _abilityHaste > 0)
-				{
-					_statusPoint += -(_abilityHaste + changeNum);
-					_abilityHaste = 0;
-				}
-				else
-				{
-					if(changeNum + _abilityHaste >= 0)
-					{
-						_abilityHaste += changeNum;
-					}
-					else
-					{
-						_statusPoint += changeNum;
-					}
-				}
-
-				break;
-
-			default:
-				break;
+			_statusPoint += -(_status[type] + changeNum);
+			_status[type] = 0;
+		}
+		else
+		{
+			if(changeNum + _status[type] >= 0)
+			{
+				_status[type] += changeNum;
+			}
+			else{
+				_statusPoint += changeNum;
+			}
 		}
 		ViewStatusPoint();
 	}
@@ -178,22 +73,12 @@ public class StatusPoint : MonoBehaviour
 		{
 			// TODO enum使ってミスが起こらないようにしたい
 			case "Attack":
-				return _attack;
-
 			case "AttackSpeed":
-				return _attackSpeed;
-
 			case "Deffence":
-				return _deffence;
-
 			case "HitPoint":
-				return _hitPoint;
-
 			case "Speed":
-				return _speed;
-
 			case "AbilityHaste":
-				return _abilityHaste;
+				return _status[type];
 
 			default:
 				break;
@@ -202,12 +87,12 @@ public class StatusPoint : MonoBehaviour
 	}
 	private void Init()
 	{
-		_attack = 0;
-		_attackSpeed = 0;
-		_deffence = 0;
-		_hitPoint = 0;
-		_speed = 0;
-		_abilityHaste = 0;
+		_status.Add("Attack", 0);
+		_status.Add("AttackSpeed", 0);
+		_status.Add("Deffence", 0);
+		_status.Add("HitPoint", 0);
+		_status.Add("Speed", 0);
+		_status.Add("AbilityHaste", 0);
 	}
 	private void ViewStatusPoint()
 	{
