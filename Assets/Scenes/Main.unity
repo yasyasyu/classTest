@@ -525,7 +525,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -702,6 +702,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea28759f96fab2b488665a8b84ed1380, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  viewText: {fileID: 725563873}
 --- !u!1001 &914879491
 PrefabInstance:
   m_ObjectHideFlags: 0

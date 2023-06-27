@@ -34,21 +34,21 @@ public class StatusPoint : MonoBehaviour
 	/// <param name="num">‘Œ¸’l</param>
 	public void StatusSelect(string type, int num)
 	{
-		int changeNum = num;
-		if(num > _statusPoint)
+		if(_status[type] + num < 0 && _status[type] > 0)
 		{
-			changeNum = _statusPoint;
-		}
-		_statusPoint -= changeNum;
-		Debug.Log(string.Format("num:{0}, change:{1}, status:{2}", num, changeNum, _statusPoint));
-		if(_status[type] + changeNum < 0 && _status[type] > 0)
-		{
-			_statusPoint += -(_status[type] + changeNum);
+			_statusPoint += _status[type] ;
 			_status[type] = 0;
 		}
 		else
 		{
-			if(changeNum + _status[type] >= 0)
+			int changeNum = num;
+			if (changeNum > _statusPoint)
+			{
+				changeNum = _statusPoint;
+			}
+
+			_statusPoint -= changeNum;
+			if (changeNum + _status[type] >= 0)
 			{
 				_status[type] += changeNum;
 			}
